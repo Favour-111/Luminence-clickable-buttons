@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Stories - Real Transformations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .luminence-container-shopify {
+        max-width: 400px !important;
+        margin: 40px auto !important;
+        background: #fff !important;
+        border-radius: 16px !important;
+        font-family: "Montserrat", sans-serif;
+        padding: 32px 24px !important;
+        color: #222 !important;
+        position: relative !important;
+        z-index: 9999 !important;
+      }
+      .luminence-rating-row-shopify {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
+      }
+      .luminence-stars-shopify {
+        color: #ffd600 !important;
+        margin-right: 8px !important;
+        font-size: 15px !important;
+      }
+      .luminence-rating-text-shopify {
+        font-weight: 400 !important;
+        font-size: 11px;
+      }
+      .luminence-review-count-shopify {
+        font-weight: bold !important;
+        margin-left: 4px !important;
+      }
+      .luminence-title-shopify {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        margin: 16px 0 0 0 !important;
+        text-align: center !important;
+      }
+      .luminence-subtitle-shopify {
+        font-size: 1.7rem !important;
+        font-weight: 800 !important;
+        margin: 0 0 24px 0 !important;
+        text-align: center !important;
+        color: #e600c7 !important;
+        font-style: italic !important;
+      }
+      .luminence-filter-buttons-shopify {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+        justify-items: center !important;
+        margin-bottom: 32px !important;
+      }
+      .luminence-filter-btn-shopify {
+        background: #fff !important;
+        border: 1px solid #d3d3d3 !important;
+        border-radius: 24px !important;
+        padding: 10px 0 !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #3d003d !important;
+        cursor: pointer !important;
+        transition: background 0.2s, color 0.2s !important;
+        outline: none !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .luminence-filter-btn-shopify.luminence-active-shopify {
+        background: #3d003d !important;
+        color: #fff !important;
+      }
+      .luminence-testimonial-shopify {
+        border-radius: 16px !important;
+        /* padding: 24px !important; */
+        overflow: hidden;
+        border: 1px solid #d3d3d3;
+
+        margin-top: 8px !important;
+      }
+      .luminence-content-row-shopify {
+        padding: 8px 17px 20px 17px !important;
+      }
+      .luminence-images-row-shopify {
+        display: flex !important;
+        gap: 5px !important;
+        justify-content: stretch !important;
+        align-items: stretch !important;
+        margin-bottom: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .luminence-img-col-shopify {
+        flex: 1 1 0 !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+      }
+      .luminence-img-col-shopify img {
+        width: 100% !important;
+        height: 180px !important;
+        object-fit: cover !important;
+        background: #ddd !important;
+        display: block !important;
+      }
+      @media screen and (max-width: 600px) {
+        .luminence-images-row-shopify {
+          width: 100% !important;
+          max-width: 100% !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        .luminence-img-col-shopify img {
+          height: 120px !important;
+          min-height: 80px !important;
+          max-height: 160px !important;
+        }
+      }
+      .luminence-img-label-shopify {
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        padding: 10px 0;
+        color: #e600c7 !important;
+        background: #e600c710 !important;
+      }
+      .luminence-img-label-shopify.luminence-day30-shopify {
+        background: #e600c7 !important;
+        color: #fff !important;
+        display: inline-block !important;
+      }
+      .luminence-stars-row-shopify {
+        margin: 12px 0 8px 0 !important;
+        color: #ffd600 !important;
+        font-size: 15px !important;
+        font-weight: bold !important;
+      }
+      .review-problem-text {
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        margin-right: 4px !important;
+      }
+      .luminence-problem-label-shopify {
+        background: #3d003d !important;
+        color: #fff !important;
+        border-radius: 8px !important;
+        padding: 4px 12px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        display: inline-block !important;
+        margin-left: 8px !important;
+      }
+      .luminence-review-text-shopify {
+        margin: 16px 0 !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+      }
+      .luminence-user-info-shopify {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-top: 12px !important;
+        background: #f3e6f9 !important;
+        padding: 4px 12px !important;
+        border-radius: 16px !important;
+        width: fit-content !important;
+        padding: 6px 12px !important;
+      }
+      .luminence-user-name-shopify {
+        font-weight: 600 !important;
+        color: #3d003d !important;
+        font-size: 13px !important;
+      }
+
+      .luminence-verified-shopify {
+        color: #e600c7 !important;
+        font-weight: 600 !important;
+
+        font-size: 13px !important;
+      }
+
+      @media screen and (max-width: 600px) {
+        .luminence-container-shopify {
+          padding: 24px 13px !important;
+        }
+        .luminence-title-shopify {
+          font-size: 1.5rem !important;
+        }
+        .luminence-subtitle-shopify {
+          font-size: 1.6rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="luminence-container-shopify">
+      <div class="luminence-rating-row-shopify">
+        <span class="luminence-stars-shopify">★★★★★</span>
+        <span class="luminence-rating-text-shopify"
+          >Rated <b>4.8/5</b> based on
+          <span class="luminence-review-count-shopify"
+            >+137,135 reviews</span
+          ></span
+        >
+      </div>
+      <h1 class="luminence-title-shopify">Real Stories</h1>
+      <h2 class="luminence-subtitle-shopify">Real Transformations</h2>
+      <div class="luminence-filter-buttons-shopify">
+        <button
+          class="luminence-filter-btn-shopify luminence-active-shopify"
+          data-type="double-chins"
+        >
+          DOUBLE CHINS
+        </button>
+        <button class="luminence-filter-btn-shopify" data-type="acne">
+          ACNE
+        </button>
+        <button class="luminence-filter-btn-shopify" data-type="fine-lines">
+          FINE LINES
+        </button>
+        <button class="luminence-filter-btn-shopify" data-type="aging">
+          AGING
+        </button>
+      </div>
+      <div id="luminence-testimonial-content-shopify"></div>
+    </div>
+    <script>
+      // Testimonial data
+      const luminenceTestimonialsShopify = {
+        "double-chins": {
+          images: [
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/BeforeAsian.webp?raw=true",
+              label: "DAY 01",
+              dayClass: "",
+            },
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/AfterAsian.webp?raw=true",
+              label: "DAY 30",
+              dayClass: "luminence-day30-shopify",
+            },
+          ],
+          stars: 5,
+          problem: "DOUBLE CHINS",
+          review:
+            "I bought the LUMINESCENCE light therapy device to primarily prevent future facial wrinkles but decided to try it on my double chin too. What a surprise! Using a combination of all the lights, the area looks more toned and sculpted. It's kind of a miracle worker, the improvement is extremely noticeable and has boosted my confidence.",
+          user: { name: "Natalie, 35", verified: true },
+        },
+        acne: {
+          images: [
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/BeforeAsian.webp?raw=true",
+              label: "DAY 01",
+              dayClass: "",
+            },
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/AfterAsian.webp?raw=true",
+              label: "DAY 30",
+              dayClass: "luminence-day30-shopify",
+            },
+          ],
+          stars: 5,
+          problem: "ACNE",
+          review:
+            "After using the device for a month, my acne has visibly reduced and my skin feels smoother. I feel much more confident going out without makeup.",
+          user: { name: "Alex, 28", verified: true },
+        },
+        "fine-lines": {
+          images: [
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/BeforeAsian.webp?raw=true",
+              label: "DAY 01",
+              dayClass: "",
+            },
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/AfterAsian.webp?raw=true",
+              label: "DAY 30",
+              dayClass: "luminence-day30-shopify",
+            },
+          ],
+          stars: 4,
+          problem: "FINE LINES",
+          review:
+            "The fine lines around my eyes and mouth have softened so much! I love how easy it is to use and the results are real.",
+          user: { name: "Morgan, 42", verified: true },
+        },
+        aging: {
+          images: [
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/BeforeAsian.webp?raw=true",
+              label: "DAY 01",
+              dayClass: "",
+            },
+            {
+              src: "https://github.com/Favour-111/my-asset/blob/main/AfterAsian.webp?raw=true",
+              label: "DAY 30",
+              dayClass: "luminence-day30-shopify",
+            },
+          ],
+          stars: 5,
+          problem: "AGING",
+          review:
+            "My skin feels firmer and looks brighter. Friends keep asking what I’ve done differently. Highly recommend for anyone concerned about aging.",
+          user: { name: "Taylor, 50", verified: true },
+        },
+      };
+      function renderLuminenceTestimonialShopify(type) {
+        const t = luminenceTestimonialsShopify[type];
+        let stars = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
+        document.getElementById(
+          "luminence-testimonial-content-shopify"
+        ).innerHTML = `
+          <div class="luminence-testimonial-shopify">
+            <div class="luminence-images-row-shopify">
+              <div class="luminence-img-col-shopify">
+                <img src="${t.images[0].src}" alt="Before">
+                <div class="luminence-img-label-shopify ${
+                  t.images[0].dayClass
+                }">${t.images[0].label}</div>
+              </div>
+              <div class="luminence-img-col-shopify">
+                <img src="${t.images[1].src}" alt="After">
+                <div class="luminence-img-label-shopify ${
+                  t.images[1].dayClass
+                }">${t.images[1].label}</div>
+              </div>
+            </div>
+            <div class="luminence-content-row-shopify">
+            <div class="luminence-stars-row-shopify"><span class="luminence-user-ratings-shopify">${stars}</span>
+              <span class="luminence-problem-label-shopify"><span class="review-problem-text">PROBLEM</span>: ${
+                t.problem
+              }</span>
+            </div>
+            <div class="luminence-review-text-shopify">${t.review}</div>
+            <div class="luminence-user-info-shopify">
+                <span><img src="https://cdn-icons-png.flaticon.com/512/11708/11708440.png" width="12" alt="User"></span>
+              <span class="luminence-user-name-shopify">${t.user.name}</span>
+              <span class="luminence-verified-shopify">${
+                t.user.verified ? "Verified Buyer" : ""
+              }</span>
+            </div>
+            </div>
+          </div>
+        `;
+      }
+      renderLuminenceTestimonialShopify("double-chins");
+      document
+        .querySelectorAll(".luminence-filter-btn-shopify")
+        .forEach((btn) => {
+          btn.addEventListener("click", function () {
+            document
+              .querySelectorAll(".luminence-filter-btn-shopify")
+              .forEach((b) => b.classList.remove("luminence-active-shopify"));
+            this.classList.add("luminence-active-shopify");
+            renderLuminenceTestimonialShopify(this.dataset.type);
+          });
+        });
+    </script>
+  </body>
+</html>
