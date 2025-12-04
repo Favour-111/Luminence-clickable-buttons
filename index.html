@@ -23,9 +23,12 @@
         z-index: 9999 !important;
       }
       .luminence-rating-row-shopify {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+        margin-bottom: 0 !important;
+        margin-right: 2px !important;
+        position: relative !important;
+        top: 2px !important;
         font-size: 18px !important;
         margin-bottom: 8px !important;
       }
@@ -149,7 +152,7 @@
       .luminence-stars-row-shopify {
         margin: 12px 0 8px 0 !important;
         color: #ffd600 !important;
-        font-size: 15px !important;
+        font-size: 18px !important;
         font-weight: bold !important;
       }
       .review-problem-text {
@@ -192,7 +195,6 @@
       .luminence-verified-shopify {
         color: #f99794 !important;
         font-weight: 600 !important;
-
         font-size: 13px !important;
       }
 
@@ -350,11 +352,11 @@
             </div>
             <div class="luminence-review-text-shopify">${t.review}</div>
             <div class="luminence-user-info-shopify">
-                <span><img src="https://img.icons8.com/ios11/512/40C057/instagram-verification-badge.png" width="13" alt="User"></span>
-              <span class="luminence-user-name-shopify">${t.user.name}</span>
-              <span class="luminence-verified-shopify">${
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/047/309/930/small/verified-badge-profile-icon-png.png" width="10" alt="User">
+              <div class="luminence-user-name-shopify">${t.user.name}</div>
+              <div class="luminence-verified-shopify">${
                 t.user.verified ? "Verified Buyer" : ""
-              }</span>
+              }</div>
             </div>
             </div>
           </div>
