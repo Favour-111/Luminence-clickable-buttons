@@ -10,9 +10,16 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       .luminence-container-shopify {
-        max-width: 400px !important;
+        max-width: 1400px !important;
         margin: 40px auto !important;
         background: #fff !important;
         border-radius: 16px !important;
@@ -23,10 +30,12 @@
         z-index: 9999 !important;
       }
       .luminence-rating-row-shopify {
-        display: inline-block !important;
-        vertical-align: middle !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         margin-bottom: 0 !important;
         margin-right: 2px !important;
+        margin: auto;
         position: relative !important;
         top: 2px !important;
         font-size: 18px !important;
@@ -35,7 +44,7 @@
       .luminence-stars-shopify {
         color: #ffd600 !important;
         margin-right: 8px !important;
-        font-size: 15px !important;
+        font-size: 12px !important;
       }
       .luminence-rating-text-shopify {
         font-weight: 400 !important;
@@ -66,6 +75,20 @@
         justify-items: center !important;
         margin-bottom: 32px !important;
       }
+      @media screen and (min-width: 900px) {
+        .luminence-filter-buttons-shopify {
+          display: none !important;
+        }
+        #luminence-testimonial-content-shopify {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px !important;
+        }
+        .luminence-testimonial-shopify {
+          height: auto !important;
+          margin-top: 0 !important;
+        }
+      }
       .luminence-filter-btn-shopify {
         background: #fff !important;
         border: 1px solid #d3d3d3 !important;
@@ -86,7 +109,7 @@
       }
       .luminence-testimonial-shopify {
         border-radius: 16px !important;
-        height: 500px !important;
+        height: auto !important;
         /* padding: 24px !important; */
         overflow: hidden;
         border: 1px solid #d3d3d3;
@@ -94,7 +117,7 @@
         margin-top: 8px !important;
       }
       .luminence-content-row-shopify {
-        padding: 8px 17px 20px 17px !important;
+        padding: 0px 17px 20px 17px !important;
       }
       .luminence-images-row-shopify {
         display: flex !important;
@@ -152,8 +175,11 @@
       .luminence-stars-row-shopify {
         margin: 12px 0 8px 0 !important;
         color: #ffd600 !important;
-        font-size: 18px !important;
+        font-size: 14px !important;
         font-weight: bold !important;
+      }
+      .luminence-user-ratings-shopify i.fa-star {
+        font-size: 13px !important;
       }
       .review-problem-text {
         font-weight: 300 !important;
@@ -198,6 +224,12 @@
         font-size: 13px !important;
       }
 
+      @media screen and (max-width: 899px) {
+        .luminence-container-shopify {
+          padding: 24px 13px !important;
+          max-width: 400px !important;
+        }
+      }
       @media screen and (max-width: 600px) {
         .luminence-container-shopify {
           padding: 24px 13px !important;
@@ -214,7 +246,13 @@
   <body>
     <div class="luminence-container-shopify">
       <div class="luminence-rating-row-shopify">
-        <span class="luminence-stars-shopify">★★★★★</span>
+        <span class="luminence-stars-shopify">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </span>
         <span class="luminence-rating-text-shopify"
           >Rated <b>4.8/5</b> based on
           <span class="luminence-review-count-shopify"
@@ -262,7 +300,7 @@
           stars: 5,
           problem: "DOUBLE CHINS",
           review:
-            "I bought the LUMINESCE light therapy device to primarily prevent future facial wrinkles but decided to try it on my double chin too. What a surprise! Using a combination of all the lights, the area looks more toned and sculpted. It's kind of a miracle worker, the improvement is extremely noticeable and has boosted my confidence.",
+            "I bought the LUMINENCE tallow balm to primarily prevent future facial wrinkles but decided to try it on my double chin too. What a surprise! Using a combination of all the lights, the area looks more toned and sculpted. It's kind of a miracle worker, the improvement is extremely noticeable and has boosted my confidence.",
           user: { name: "Natalie, 35", verified: true },
         },
         acne: {
@@ -325,7 +363,11 @@
       };
       function renderLuminenceTestimonialShopify(type) {
         const t = luminenceTestimonialsShopify[type];
-        let stars = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
+        let stars =
+          Array(t.stars).fill('<i class="fa-solid fa-star"></i>').join("") +
+          Array(5 - t.stars)
+            .fill('<i class="fa-regular fa-star"></i>')
+            .join("");
         document.getElementById(
           "luminence-testimonial-content-shopify"
         ).innerHTML = `
@@ -362,7 +404,67 @@
           </div>
         `;
       }
-      renderLuminenceTestimonialShopify("double-chins");
+      function renderAllLuminenceTestimonialsShopify() {
+        let html = "";
+        for (const key in luminenceTestimonialsShopify) {
+          const t = luminenceTestimonialsShopify[key];
+          let stars =
+            Array(t.stars).fill('<i class="fa-solid fa-star"></i>').join("") +
+            Array(5 - t.stars)
+              .fill('<i class="fa-regular fa-star"></i>')
+              .join("");
+          html += `
+            <div class="luminence-testimonial-shopify">
+              
+              <div class="luminence-images-row-shopify">
+                <div class="luminence-img-col-shopify">
+                  <img src="${t.images[0].src}" alt="Before">
+                  <div class="luminence-img-label-shopify ${
+                    t.images[0].dayClass
+                  }">${t.images[0].label}</div>
+                </div>
+                
+                <div class="luminence-img-col-shopify">
+                  <img src="${t.images[1].src}" alt="After">
+                  <div class="luminence-img-label-shopify ${
+                    t.images[1].dayClass
+                  }">${t.images[1].label}</div>
+                </div>
+              </div>
+              <div class="luminence-problem-label-shopify" style="margin-bottom:8px;">${
+                t.problem
+              }</div>
+              <div class="luminence-content-row-shopify">
+                <div class="luminence-stars-row-shopify"><span class="luminence-user-ratings-shopify">${stars}</span></div>
+                <div class="luminence-review-text-shopify">${t.review}</div>
+                <div class="luminence-user-info-shopify">
+                  <img src="https://static.vecteezy.com/system/resources/thumbnails/047/309/930/small/verified-badge-profile-icon-png.png" width="13" alt="User">
+                  <div class="luminence-user-name-shopify">${t.user.name}</div>
+                  <div class="luminence-verified-shopify">${
+                    t.user.verified ? "Verified Buyer" : ""
+                  }</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+        document.getElementById(
+          "luminence-testimonial-content-shopify"
+        ).innerHTML = html;
+      }
+      function handleResponsiveTestimonials() {
+        if (window.innerWidth >= 900) {
+          renderAllLuminenceTestimonialsShopify();
+        } else {
+          renderLuminenceTestimonialShopify(
+            document.querySelector(
+              ".luminence-filter-btn-shopify.luminence-active-shopify"
+            )?.dataset.type || "double-chins"
+          );
+        }
+      }
+      handleResponsiveTestimonials();
+      window.addEventListener("resize", handleResponsiveTestimonials);
       document
         .querySelectorAll(".luminence-filter-btn-shopify")
         .forEach((btn) => {
@@ -371,7 +473,9 @@
               .querySelectorAll(".luminence-filter-btn-shopify")
               .forEach((b) => b.classList.remove("luminence-active-shopify"));
             this.classList.add("luminence-active-shopify");
-            renderLuminenceTestimonialShopify(this.dataset.type);
+            if (window.innerWidth < 900) {
+              renderLuminenceTestimonialShopify(this.dataset.type);
+            }
           });
         });
     </script>
